@@ -1,0 +1,10 @@
+#Momentos do cliclo de teste
+Before do 
+    @app = App.new
+end
+
+After do |scenario|
+    if scenario.failed?
+        page.save_screenshot("screenshot/#{scenario.name}#{Time.now}_screenshot.png")
+    end
+end
